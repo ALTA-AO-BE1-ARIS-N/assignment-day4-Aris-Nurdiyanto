@@ -7,7 +7,7 @@ const router = express.Router();
 router.post('/events', checkRole, (req, res) => {
   const { name, date } = req.body;
   const newEvent = eventController.addEvent(name, date);
-  res.status(201).json(newEvent);
+  res.status(200).json(newEvent);
 });
 
 router.get('/events', (req, res) => {
@@ -18,7 +18,7 @@ router.get('/events', (req, res) => {
 router.delete('/events/:id', checkRole, (req, res) => {
   const eventId = parseInt(req.params.id);
   eventController.deleteEvent(eventId);
-  res.status(204).send();
+  res.status(200).send();
 });
 
 module.exports = router;
